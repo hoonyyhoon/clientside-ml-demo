@@ -19,6 +19,8 @@
  let input;
  let contextDiv;
  let answerDiv;
+
+ const demosSection = document.getElementById('demos');
  
  const process = async () => {
    const model = await modelPromise;
@@ -30,7 +32,11 @@
  };
  
  window.onload = () => {
-   modelPromise = qna.load();
+   modelPromise = qna.load().then(function (model) {
+    // Show demo section now model is ready to use.
+    demosSection.classList.remove('invisible');
+    return model;
+  });
    input = document.getElementById('question');
    search = document.getElementById('search');
    contextDiv = document.getElementById('context');
