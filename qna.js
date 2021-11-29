@@ -21,6 +21,7 @@
  let answerDiv;
 
  const demosSection = document.getElementById('demos');
+ const loadingSection = document.getElementById('loading');
  
  const process = async () => {
    const model = await modelPromise;
@@ -35,6 +36,7 @@
    modelPromise = qna.load().then(function (model) {
     // Show demo section now model is ready to use.
     demosSection.classList.remove('invisible');
+    loadingSection.classList.add('invisible');
     return model;
   });
    input = document.getElementById('question');

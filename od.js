@@ -24,6 +24,7 @@
  ********************************************************************/
 
  const demosSection = document.getElementById('demos');
+ const loadingSection = document.getElementById('loading');
 
  let model = undefined;
  
@@ -34,6 +35,7 @@
    model = loadedModel;
    // Show demo section now model is ready to use.
    demosSection.classList.remove('invisible');
+   loadingSection.classList.add('invisible');
  });
  
  const video = document.getElementById('webcam');
